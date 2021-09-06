@@ -34,7 +34,7 @@ func main() {
 	ctx, cancel := signal.NotifyContext(context.Background(), os.Interrupt)
 
 	var ust user.UserStore
-	if pgdsn := os.Getenv("PG_DSN"); pgdsn != "" {
+	if pgdsn := os.Getenv("DATABASE_URL"); pgdsn != "" {
 		log.Println("use postgres at ", pgdsn)
 		ust = pgstore.NewUsers(pgdsn)
 	} else {
