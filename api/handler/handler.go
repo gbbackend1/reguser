@@ -82,6 +82,7 @@ func (rt *Router) PostCreate(w http.ResponseWriter, r *http.Request) {
 
 	nbu, err := rt.us.Create(r.Context(), bu)
 	if err != nil {
+		log.Println(err)
 		http.Error(w, "error when creating", http.StatusInternalServerError)
 		return
 	}
